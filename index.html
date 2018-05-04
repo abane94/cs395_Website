@@ -14,33 +14,12 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="./style.css">
+    
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="./index.js" ></script>
 
-    <style>
-        html {
-            height: 100%;
-        }
-        #center {
-            width: 40%;
-            margin:auto;
-            height: 100%;
-            background-color:azure;
-            padding: 15px;
-        }
-        #main {
-            background-color: cadetblue;
-            
-            height: 100%;
-        }
-
-        body {
-            height: 100%;
-        }
-
-        
-    </style>
 
 </head>
 <body>
@@ -55,7 +34,7 @@
                         <div class="form-group">
                             <input type="text" class="form-control" id="edit" placeholder="Whats On Your Mind...">
                         </div>
-                        <input type="button" value="Post" class="btn btn-primary mb-2" onclick="post()"/>
+                        <input id="postBtn" type="button" value="Post" class="btn mb-2 btn-outline-info" onclick="post()"/>
                     </form>
             </div>
             <hr/>
@@ -67,5 +46,130 @@
         </div>
 
     </div>
+
+    <!-- Button trigger modal -->
+    <button id="post-model" type="button" class="btn btn-primary" data-toggle="modal" data-target="#post-model">
+    </button>
+
+    <button id="terms-model" type="button" class="btn btn-primary" data-toggle="modal" data-target="#terms-model">
+    </button>
+
+    <button id="learn-model" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learn-model">
+    </button>
+
+    <!-- warning for removing post modal -->
+    <div class="modal" id="postModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-danger" id="exampleModalLabel">Post Removed</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Your post was removed for violating CensMe's Terms of Service.
+                <br/>
+
+                <a href="https://www.facebook.com/terms.php">
+                    <button type="button" class="btn btn-outline-info">Facebook</button>
+                </a>
+                
+                <button id="terms-model" type="button" class="btn btn-primary" data-toggle="modal" data-target="#termsModal">
+                    Terms    
+                </button>
+
+                <button id="terms-model" type="button" class="btn btn-info" data-toggle="modal" data-target="#learnModal">
+                    Learn More
+                </button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of service modal -->
+    <div class="modal" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="termsModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">CensMe's Terms of Service</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <iframe src="./terms.html"></iframe>
+                
+                <br/>
+
+                <a href="https://www.facebook.com/terms.php">
+                    <button type="button" class="btn btn-outline-info">Facebook</button>
+                </a>
+                <button id="terms-model" type="button" class="btn btn-info" data-toggle="modal" data-target="#learnModal">
+                    Learn More
+                </button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Learn More modal -->
+    <div class="modal" id="learnModal" tabindex="-1" role="dialog" aria-labelledby="learnModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Learn More</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <iframe src="./learn.html"></iframe>
+
+                <br/>
+
+                <a href="https://www.facebook.com/terms.php">
+                    <button type="button" class="btn btn-outline-info">Facebook</button>
+                </a>
+                <button id="terms-model" type="button" class="btn btn-info" data-toggle="modal" data-target="#termsModal">
+                    Terms
+                </button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- New user modal -->
+    <div class="modal" id="newModal" tabindex="-1" role="dialog" aria-labelledby="newModalLabel" data-backdrop="static" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="welcomeBar">Welcome</h5>
+            </div>
+            <div class="modal-body">
+                Please read through CensMe's Terms of Service
+                <br/>
+                <iframe src="./terms.html"></iframe>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">I Agree</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+
 </body>
 </html>
