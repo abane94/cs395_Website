@@ -3,12 +3,12 @@ var userName;
 $( document ).ready(function() {
     userName = localStorage.getItem('name');
     // alert(name);
-    $('#welcomeBar').text += ' ' + userName;
     if (!userName || userName === "null") {
-        $('#newModal').modal();
         userName = prompt("Please enter you name: ");
+        $('#newModal').modal();
         localStorage.setItem('name', userName);
     }
+    $('#welcomeBar').text('Welcome ' + userName);
 
     var ls = [
         {
@@ -34,12 +34,30 @@ $( document ).ready(function() {
             $('postBtn').click();
         }
     });
+
+    // $('#termsFrame').href += '';
+    $('#termsFrame').attr('src', './terms.html#acceptableContent')
 });
 
 
 function post() {
     var text = $('#edit').val().trim();
     if (!text) { return; }
+    var ls = ['hello', 'world', 'test', 'ethics'].concat(userName.split(' '));
+
+    for (var idx in ls) {
+        var word = ls[idx];
+        if (text.toLowerCase().indexOf(word.toLowerCase()) > -1) {
+            alert(
+                `Post contains a word that violates the Terms of Service,
+                Please try another post, or see Terms of Service.
+                invalid word : ${word}
+
+                Hint: Try looking at the acceptable content section (9)
+                `);
+            return;
+        } 
+    }
     var post = addPost(userName, text, true);
 
     setTimeout(function() {

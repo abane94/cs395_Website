@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
     <link rel="stylesheet" href="./style.css">
-    
+
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="./index.js" ></script>
@@ -25,6 +25,10 @@
 <body>
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#!">CensMe</a>
+
+        <button id="terms-model-header" type="button" class="btn btn-primary" data-toggle="modal" data-target="#termsModal" style="float: right;">
+            Terms of Service
+        </button>
     </nav>
 
     <div id="main">
@@ -48,14 +52,14 @@
     </div>
 
     <!-- Button trigger modal -->
-    <button id="post-model" type="button" class="btn btn-primary" data-toggle="modal" data-target="#post-model">
+    <!-- <button id="post-model" type="button" class="btn btn-primary" data-toggle="modal" data-target="#post-model">
     </button>
 
     <button id="terms-model" type="button" class="btn btn-primary" data-toggle="modal" data-target="#terms-model">
     </button>
 
     <button id="learn-model" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learn-model">
-    </button>
+    </button> -->
 
     <!-- warning for removing post modal -->
     <div class="modal" id="postModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -101,7 +105,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <iframe src="./terms.html"></iframe>
+                <iframe id="termsFrame" src="./terms.html"></iframe>
                 
                 <br/>
 
